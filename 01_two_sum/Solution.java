@@ -3,25 +3,23 @@ import java.util.Map;
 
 class Solution {
     public int[] twoSum(int[] nums, int target){
-        var indices = new int[2];
-        Map<Integer, Integer> complements = new HashMap<>();
-        
-        int actualNumber;
+        Map<Integer, Integer> viewedNumbers = new HashMap<>();
+
+        int currentNumber;
         int needed;
         for(int i = 0; i < nums.length; i++) {
-            actualNumber = nums[i];
-            needed = target - actualNumber;
-            if (complements.containsKey(needed)) {
-                return new int[]{complements.get(needed), i};
-            } 
-            complements.put(actualNumber, i);
+            currentNumber = nums[i];
+            needed = target - currentNumber;
+            if (viewedNumbers.containsKey(needed)) {
+                return new int[]{viewedNumbers.get(needed), i};
+            }
+            viewedNumbers.put(currentNumber, i);
         }
-
-        return indices;
+        return new int[0];
     }
 
     public void main(String[] args) {
-        var nums = new int[]{3, 2, 5};
+        var nums = new int[]{3, 2, 4};
         var target = 6;
         
         int[] twoNums = twoSum(nums, target);
