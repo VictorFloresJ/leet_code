@@ -1,7 +1,13 @@
-import java.util.ArrayList;
-
 class Solution {
     public int hammingWeight(int n) {
+        int numsOfOnes = 0;
+        while(n!= 0) {
+            if (n % 2 == 1) numsOfOnes++;
+            n /= 2;
+        }
+        return numsOfOnes;
+
+        /*
         int cociente = n;
         ArrayList<Integer> residuos = new ArrayList<>();
         while(cociente!= 0) {
@@ -14,6 +20,7 @@ class Solution {
             if (residuo == 1) numsOfOnes++;
         }
         return numsOfOnes;
+         */
     }
 
     public int hammingWeightOpt(int n) {
